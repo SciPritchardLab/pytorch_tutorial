@@ -11,7 +11,7 @@ from model import CustomCNN
 @hydra.main(version_base="1.2", config_path="conf", config_name="config")
 def main(cfg: DictConfig) -> float:
     # initializing wandb
-    wandb.init(project=cfg.wandb.project, entity=cfg.wandb.entity, config=cfg)
+    wandb.init(config=cfg)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     train_loader = torch.utils.data.DataLoader(
         dataset=train_dataset, batch_size=cfg.batch_size, shuffle=True
@@ -22,8 +22,7 @@ def main(cfg: DictConfig) -> float:
     model = CustomCNN().to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate)
-    num_epochs = cfg.num_epochs
-    # beginning training
+    num_epochs = wandb.config.num_epochs  # or set directly if you don't want to use wandb.config
     for epoch in range(num_epochs):
         model.train()
         running_loss = 0.0
@@ -39,17 +38,27 @@ def main(cfg: DictConfig) -> float:
             loss.backward()
             optimizer.step()
 
-            # Print training info
-            if (step + 1) % 100 == 0:
-                print(f"Epoch [{epoch+1}/{num_epochs}], Step [{step+1}/{len(train_loader)}], "
-                    f"Loss: {loss.item():.4f}")
+            running_loss += loss.item()
 
-        # Evaluation
+            # Log training info every 100 steps
+            if (step + 1) % 100 == 0:
+                average_loss = running_loss / 100.0
+                print(f"Epoch [{epoch+1}/{num_epochs}], Step [{step+1}/{len(train_loader)}], Loss: {average_loss:.4f}")
+
+                # Log the current loss, epoch, and step to wandb
+                wandb.log({
+                    "epoch": epoch + 1,
+                    "step": step + 1,
+                    "loss": average_loss
+                })
+
+                # Reset running_loss for the next logging interval
+                running_loss = 0.0
         model.eval()
         correct = 0
         total = 0
         with torch.no_grad():
-            for images, labels in test_loader:
+            for images, labels in val_loader:
                 images, labels = images.to(device), labels.to(device)
                 outputs = model(images)
                 # Get the predicted class with the highest score
@@ -62,7 +71,9 @@ def main(cfg: DictConfig) -> float:
         # Log metrics to W&B
         wandb.log({"val_accuracy": accuracy})
 
-
-    # Finish wandb run
+    # Optionally finish the run
     wandb.finish()
+
+if __name__ == '__main__':
+    main()
 
