@@ -321,7 +321,7 @@ def _(mo):
 def _(wandb):
     wandb.init(project='pytorch_tutorial', \
                entity='cbrain', \
-               name = 'demo_run_01', \
+               name = 'practice_run_01', \
                config={
                        'num_epochs': 3, \
                        'learning_rate': 0.001,
@@ -413,11 +413,6 @@ def _(
         step,
         total,
     )
-
-
-@app.cell
-def _():
-    return
 
 
 if __name__ == "__main__":
