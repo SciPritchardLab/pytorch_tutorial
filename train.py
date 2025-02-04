@@ -11,17 +11,22 @@ from model import CustomCNN
 @hydra.main(version_base="1.2", config_path="conf", config_name="config")
 def main(cfg: DictConfig) -> float:
     # initializing wandb
-    wandb.init(config=cfg)
+    wandb.init(
+        project = cfg.wandb.project,
+        entity = cfg.wandb.entity,
+        config = cfg.wandb.run_name,
+        config = cfg
+    )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     train_loader = torch.utils.data.DataLoader(
-        dataset=train_dataset, batch_size=cfg.batch_size, shuffle=True
+        dataset=train_dataset, batch_size=cfg.training.batch_size, shuffle=True
     )
     val_loader = torch.utils.data.DataLoader(
-        dataset=val_dataset, batch_size=cfg.batch_size, shuffle=False
+        dataset=val_dataset, batch_size=cfg.training.batch_size, shuffle=False
     )
     model = CustomCNN().to(device)
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate)
+    optimizer = optim.Adam(model.parameters(), lr=cfg.training.learning_rate)
     num_epochs = wandb.config.num_epochs  # or set directly if you don't want to use wandb.config
     for epoch in range(num_epochs):
         model.train()
