@@ -9,7 +9,7 @@ model:
 wandb:
   project: "pytorch_tutorial"  # Replace with your actual project name
   entity: "cbrain"      # Replace with your actual entity name
-  run_name: "default_run_000"  # Define a run name or leave it dynamic
+  run_name: "first_command_line_run"  # Define a run name or leave it dynamic
 
 # Training configuration
 training:

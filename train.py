@@ -14,7 +14,7 @@ def main(cfg: DictConfig) -> float:
     wandb.init(
         project = cfg.wandb.project,
         entity = cfg.wandb.entity,
-        config = cfg.wandb.run_name,
+        name = cfg.wandb.run_name,
         config = {
             'batch_size': cfg.training.batch_size,
             'learning_rate': cfg.training.learning_rate,
