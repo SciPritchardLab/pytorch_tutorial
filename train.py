@@ -15,7 +15,12 @@ def main(cfg: DictConfig) -> float:
         project = cfg.wandb.project,
         entity = cfg.wandb.entity,
         config = cfg.wandb.run_name,
-        config = cfg
+        config = {
+            'batch_size': cfg.training.batch_size,
+            'learning_rate': cfg.training.learning_rate,
+            'num_epochs': cfg.training.num_epochs,
+            'model_name': cfg.model.name,
+        }
     )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     train_loader = torch.utils.data.DataLoader(
