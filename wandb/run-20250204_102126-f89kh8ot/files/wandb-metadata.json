@@ -1,0 +1,47 @@
+{
+  "os":  "macOS-15.3-arm64-arm-64bit",
+  "python":  "CPython 3.9.21",
+  "startedAt":  "2025-02-04T18:21:27.243909Z",
+  "args":  [
+    "--config-path=/Users/jerrylin/Desktop/polished_repos/pytorch_tutorial/conf",
+    "--config-name=config_default"
+  ],
+  "program":  "/Users/jerrylin/Desktop/polished_repos/pytorch_tutorial/train.py",
+  "codePath":  "train.py",
+  "git":  {
+    "commit":  "2116098c5bfb8ca780ec3c7678f0282ef9d04889"
+  },
+  "email":  "jerrylin247365@gmail.com",
+  "root":  "/Users/jerrylin/Desktop/polished_repos/pytorch_tutorial",
+  "host":  "dhcp-v047-252.mobile.uci.edu",
+  "executable":  "/Users/jerrylin/miniconda3/envs/tutorialenv/bin/python",
+  "codePathLocal":  "train.py",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "994662584320",
+      "used":  "586640330752"
+    },
+    "/System/Volumes/Data":  {
+      "total":  "994662584320",
+      "used":  "586640330752"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  8
+  },
+  "apple":  {
+    "name":  "Apple M1",
+    "ecpuCores":  4,
+    "pcpuCores":  4,
+    "gpuCores":  8,
+    "memoryGb":  16,
+    "swapTotalBytes":  "2147483648",
+    "ramTotalBytes":  "17179869184"
+  }
+}

@@ -1,0 +1,23 @@
+2025-02-04 10:21:26,991 INFO    MainThread:57483 [wandb_setup.py:_flush():68] Current SDK version is 0.19.5
+2025-02-04 10:21:26,991 INFO    MainThread:57483 [wandb_setup.py:_flush():68] Configure stats pid to 57483
+2025-02-04 10:21:26,991 INFO    MainThread:57483 [wandb_setup.py:_flush():68] Loading settings from /Users/jerrylin/.config/wandb/settings
+2025-02-04 10:21:26,991 INFO    MainThread:57483 [wandb_setup.py:_flush():68] Loading settings from /Users/jerrylin/Desktop/polished_repos/pytorch_tutorial/wandb/settings
+2025-02-04 10:21:26,992 INFO    MainThread:57483 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-02-04 10:21:26,992 INFO    MainThread:57483 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /Users/jerrylin/Desktop/polished_repos/pytorch_tutorial/wandb/run-20250204_102126-f89kh8ot/logs/debug.log
+2025-02-04 10:21:26,992 INFO    MainThread:57483 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /Users/jerrylin/Desktop/polished_repos/pytorch_tutorial/wandb/run-20250204_102126-f89kh8ot/logs/debug-internal.log
+2025-02-04 10:21:26,992 INFO    MainThread:57483 [wandb_init.py:init():756] calling init triggers
+2025-02-04 10:21:26,992 INFO    MainThread:57483 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'batch_size': 64, 'learning_rate': 0.001, 'optimizer': 'Adam', 'num_epochs': 3, 'model_name': 'CustomCNN', '_wandb': {}}
+2025-02-04 10:21:26,992 INFO    MainThread:57483 [wandb_init.py:init():789] starting backend
+2025-02-04 10:21:27,221 INFO    MainThread:57483 [wandb_init.py:init():793] sending inform_init request
+2025-02-04 10:21:27,243 INFO    MainThread:57483 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2025-02-04 10:21:27,243 INFO    MainThread:57483 [wandb_init.py:init():808] backend started and connected
+2025-02-04 10:21:27,246 INFO    MainThread:57483 [wandb_init.py:init():901] updated telemetry
+2025-02-04 10:21:27,267 INFO    MainThread:57483 [wandb_init.py:init():926] communicating run to backend with 90.0 second timeout
+2025-02-04 10:21:27,655 INFO    MainThread:57483 [wandb_init.py:init():984] starting run threads in backend
+2025-02-04 10:21:27,715 INFO    MainThread:57483 [wandb_run.py:_console_start():2385] atexit reg
+2025-02-04 10:21:27,715 INFO    MainThread:57483 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-02-04 10:21:27,715 INFO    MainThread:57483 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-02-04 10:21:27,715 INFO    MainThread:57483 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-02-04 10:21:27,717 INFO    MainThread:57483 [wandb_init.py:init():1026] run started, returning control to user process
+2025-02-04 10:22:00,138 WARNING MsgRouterThr:57483 [router.py:message_loop():75] message_loop has been closed

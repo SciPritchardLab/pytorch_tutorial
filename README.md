@@ -12,9 +12,10 @@ This is a basic PyTorch tutorial. To get started, simply git clone this repo and
 git clone https://github.com/SciPritchardLab/pytorch_tutorial.git
 cd pytorch_tutorial
 ```
-Then, install the conda environment.
+Then, install and activate the conda environment.
 ```
 conda env create -f environment.yaml
+conda activate tutorialenv
 ```
 
 The environment.yml assumes you are using MacOS. A pull request adding environments for Linux and Windows would be welcomed.
