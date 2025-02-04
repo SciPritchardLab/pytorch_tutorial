@@ -10,19 +10,20 @@ from model import CustomCNN
 
 @hydra.main(version_base="1.2", config_path="conf", config_name="config")
 def main(cfg: DictConfig) -> float:
+    # initializing wandb
     wandb.init(project=cfg.wandb.project, entity=cfg.wandb.entity, config=cfg)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     train_loader = torch.utils.data.DataLoader(
         dataset=train_dataset, batch_size=cfg.batch_size, shuffle=True
     )
-    test_loader = torch.utils.data.DataLoader(
-        dataset=test_dataset, batch_size=cfg.batch_size, shuffle=False
+    val_loader = torch.utils.data.DataLoader(
+        dataset=val_dataset, batch_size=cfg.batch_size, shuffle=False
     )
     model = CustomCNN().to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=cfg.learning_rate)
     num_epochs = cfg.num_epochs
-
+    # beginning training
     for epoch in range(num_epochs):
         model.train()
         running_loss = 0.0
