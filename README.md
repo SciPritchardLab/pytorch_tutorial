@@ -1,6 +1,14 @@
-# pytorch_tutorial
-Creating a PyTorch tutorial for UCI ESS.
+<div align="center">
+
+# PyTorch Tutorial
+
+[![python](https://img.shields.io/badge/-Python_3.8_%7C_3.9_%7C_3.10-blue?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![pytorch](https://img.shields.io/badge/PyTorch_2.0+-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
+
+Basic PyTorch tutorial.
 
 This repo accompanies slides found here:
+
 https://docs.google.com/presentation/d/1DdT6Eud3avT4K-5UCgyNKGxF5ZIqAuIaJ_-74hpAxf0/edit?usp=sharing
 
+</div>
