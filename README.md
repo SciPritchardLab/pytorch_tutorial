@@ -20,6 +20,14 @@ To play with the marimo notebook simply enter:
 marimo edit train_marimo.py
 ```
 
+To train models and iterate from the command line, simply enter:
+
+```
+python train.py --config-name=config_default
+```
+
+You can run additional experiments simply by modifying the config file or creating and using new config files.
+
 This repo accompanies slides found here:
 
 https://docs.google.com/presentation/d/1DdT6Eud3avT4K-5UCgyNKGxF5ZIqAuIaJ_-74hpAxf0/edit?usp=sharing
