@@ -5,6 +5,12 @@ defaults:
 model:
   name: CustomCNN
 
+# WandB configuration
+wandb:
+  project: "pytorch_tutorial"  # Replace with your actual project name
+  entity: "cbrain"      # Replace with your actual entity name
+  run_name: "default_run_000"  # Define a run name or leave it dynamic
+
 # Training configuration
 training:
   batch_size: 32
