@@ -18,6 +18,7 @@ def main(cfg: DictConfig) -> float:
         config = {
             'batch_size': cfg.training.batch_size,
             'learning_rate': cfg.training.learning_rate,
+            'optimizer': cfg.training.optimizer,
             'num_epochs': cfg.training.num_epochs,
             'model_name': cfg.model.name,
         }
@@ -31,7 +32,10 @@ def main(cfg: DictConfig) -> float:
     )
     model = CustomCNN().to(device)
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=cfg.training.learning_rate)
+    if cfg.training.optimizer == 'Adam':
+        optimizer = optim.Adam(model.parameters(), lr=cfg.training.learning_rate)
+    else:
+        raise NotImplementedError(f'Optimizer {cfg.training.optimizer} not implemented')
     num_epochs = wandb.config.num_epochs  # or set directly if you don't want to use wandb.config
     for epoch in range(num_epochs):
         model.train()
